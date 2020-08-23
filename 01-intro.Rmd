@@ -13,7 +13,7 @@ Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Fig
 
 Let's do the same thing with ggplot.
 
-(ggplot-fig) A supersexy caption
+(ref:ggplot-fig) A supersexy caption
 
 ```{r ggplot-fig, fig.cap="(ggplot-fig)"}
 pressure %>%
