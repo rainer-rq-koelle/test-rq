@@ -19,10 +19,7 @@ jobs:
         run: Rscript -e 'install.packages(c("rmarkdown","bookdown"))'
 ######## any other package ... from CRAN ###########################
       - name: Install other packages
-        run: RScript -e 'install.packages(
-          c( "magrittr"   # there will be pipes!
-            ,"ggplot2"    # grammar of graphics vis
-            ) )'
+        run: RScript -e 'install.packages(c("magrittr","ggplot2"))'
 ###################### RENDER BOOK ################################
       - name: Render Book
         run: Rscript -e 'bookdown::render_book("index.Rmd")'
