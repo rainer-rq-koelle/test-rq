@@ -23,9 +23,9 @@ jobs:
         with:
           name: _book
           path: _book/
-     - name: Commit results
-     if: github.repository == 'rainer-rq-koelle/test-rq'
-     run: |
+      - name: Commit results
+        if: github.repository == 'rainer-rq-koelle/test-rq'
+        run: |
           cd _book
           git init
           git config user.name "Rainer Koelle"
