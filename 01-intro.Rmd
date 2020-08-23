@@ -15,7 +15,7 @@ Let's do the same thing with ggplot.
 
 (ref:ggplot-fig) A supersexy caption
 
-```{r ggplot-fig, fig.cap="(ggplot-fig)"}
+```{r ggplot-fig, fig.cap="(ref:ggplot-fig)"}
 pressure %>%
   ggplot(mapping = aes(x = temperature, y = pressure)) +
   geom_point() +
