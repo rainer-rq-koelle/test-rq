@@ -24,29 +24,6 @@ jobs:
           name: _book
           path: _book/
   
-# Need to first create an empty gh-pages branch
-# see https://pkgdown.r-lib.org/reference/deploy_site_github.html
-# and also add secrets for a GITHUB_PAT and EMAIL to the repository
-# gh-action from Cecilapp/GitHub-Pages-deploy
-  checkout-and-deploy:
-   runs-on: ubuntu-latest
-   needs: bookdown
-   steps:
-     - name: Checkout
-       uses: actions/checkout@master
-     - name: Download artifact
-       uses: actions/download-artifact@v1.0.0
-       with:
-         # Artifact name
-         name: _book # optional
-         # Destination path
-         path: _book # optional
-#    - name: Deploy
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          github_token: ${{ secrets.BOOK_GITHUB_PAT }}
-#          publish_dir: ./_book  
-#         
      - name: Commit results
         if: github.repository == 'rainer-rq-koelle/test-rq'
         run: |
@@ -59,4 +36,5 @@ jobs:
           git status
           git commit -m 'update book'
           git push https://${{github.actor}}:${{secrets.BOOK_GITHUB_PAT}}@github.com/${{github.repository}}.git HEAD:gh-pages --force
+          
  
