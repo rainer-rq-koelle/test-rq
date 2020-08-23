@@ -176,11 +176,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 2.1: Here is a nice figure!
 </p>
 </div>
-<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">2.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="intro.html#tab:nice-tab">2.1</a>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro.html#cb3-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
-<span id="cb3-2"><a href="intro.html#cb3-2"></a>  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
-<span id="cb3-3"><a href="intro.html#cb3-3"></a>  <span class="dt">booktabs =</span> <span class="ot">TRUE</span></span>
-<span id="cb3-4"><a href="intro.html#cb3-4"></a>)</span></code></pre></div>
+<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">2.1</a>.</p>
+<p>Let’s do the same thing with ggplot.</p>
+
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro.html#cb3-1"></a>pressure <span class="op">%&gt;%</span></span>
+<span id="cb3-2"><a href="intro.html#cb3-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> temperature, <span class="dt">y =</span> pressure)) <span class="op">+</span></span>
+<span id="cb3-3"><a href="intro.html#cb3-3"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb3-4"><a href="intro.html#cb3-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<div class="figure"><span id="fig:ggplot-fig"></span>
+<img src="test-rq_files/figure-html/ggplot-fig-1.png" alt="A supersexy caption" width="672" />
+<p class="caption">
+Figure 2.2: A supersexy caption
+</p>
+</div>
+<p>We have actually successfully installed the package to draw this figure shown at <a href="intro.html#fig:ggplot-fig">2.2</a>.</p>
+<p>Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="intro.html#tab:nice-tab">2.1</a>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="intro.html#cb4-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
+<span id="cb4-2"><a href="intro.html#cb4-2"></a>  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
+<span id="cb4-3"><a href="intro.html#cb4-3"></a>  <span class="dt">booktabs =</span> <span class="ot">TRUE</span></span>
+<span id="cb4-4"><a href="intro.html#cb4-4"></a>)</span></code></pre></div>
 <table>
 <caption><span id="tab:nice-tab">Table 2.1: </span>Here is a nice table!</caption>
 <thead>
