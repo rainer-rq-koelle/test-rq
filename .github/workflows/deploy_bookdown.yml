@@ -23,9 +23,10 @@ jobs:
         with:
           name: _book
           path: _book/
-      - name: Deploy to GitHub Pages
-        uses: Cecilapp/GitHub-Pages-deploy@master
-        env:
-          EMAIL: ${{ secrets.BOOK_EMAIL }}           # must be a verified email
-          GH_TOKEN: ${{ secrets.BOOK_GITHUB_PAT }}   # https://github.com/settings/tokens
-          BUILD_DIR: _book/                          # "_site/" by default
+########################## DEPLOY ###########################
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.BOOK_GITHUB_PAT }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: _book # The folder the action should deploy.
