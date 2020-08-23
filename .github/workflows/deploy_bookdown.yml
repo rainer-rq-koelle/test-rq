@@ -41,9 +41,22 @@ jobs:
          name: _book # optional
          # Destination path
          path: _book # optional
-    - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.BOOK_GITHUB_PAT }}
-          publish_dir: ./_book  
+#    - name: Deploy
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.BOOK_GITHUB_PAT }}
+#          publish_dir: ./_book  
+#         
+     - name: Commit results
+        if: github.repository == 'rainer-rq-koelle/test-rq'
+        run: |
+          cd _book
+          git init
+          git config user.name "Rainer Koelle"
+          git config user.email "rainer.koelle@eurocontrol.int"
+          git config --global push.default simple
+          git add .
+          git status
+          git commit -m 'update book'
+          git push https://${{github.actor}}:${{secrets.BOOK_GITHUB_PAT}}@github.com/${{github.repository}}.git HEAD:gh-pages --force
  
